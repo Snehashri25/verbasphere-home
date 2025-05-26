@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Welcome to VerbaSphere ✨");
-  
+    
+    // Initialize footer features
+    initializeFooterFeatures();
+    
     // Smooth scroll for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
@@ -113,3 +116,61 @@ document.addEventListener("DOMContentLoaded", () => {
       sectionObserver.observe(section);
     });
   });
+  
+  // Footer functionality
+  function initializeFooterFeatures() {
+    // Newsletter form handling
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterMessage = document.getElementById('newsletter-message');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Simulate newsletter subscription
+            newsletterMessage.textContent = 'Subscribing...';
+            newsletterMessage.className = 'newsletter-message';
+            
+            // Simulate API call
+            setTimeout(() => {
+                if (email && email.includes('@')) {
+                    newsletterMessage.textContent = 'Thank you for subscribing! 🎉';
+                    newsletterMessage.className = 'newsletter-message success';
+                    newsletterForm.reset();
+                } else {
+                    newsletterMessage.textContent = 'Please enter a valid email address';
+                    newsletterMessage.className = 'newsletter-message error';
+                }
+            }, 1000);
+        });
+    }
+
+    // Last updated timestamp
+    const lastUpdateSpan = document.getElementById('last-update');
+    if (lastUpdateSpan) {
+        function updateTimestamp() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            lastUpdateSpan.textContent = timeString;
+        }
+        
+        // Update immediately and then every minute
+        updateTimestamp();
+        setInterval(updateTimestamp, 60000);
+    }
+
+    // Social links animation
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.style.animation = 'none'; // Reset animation
+            void link.offsetWidth; // Trigger reflow
+            link.style.animation = 'fadeIn 0.3s ease-out';
+        });
+    });
+}

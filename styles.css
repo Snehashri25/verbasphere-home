@@ -1,21 +1,38 @@
 /* Homepage CSS here */
 :root {
+  /* Common colors */
+  --gold: #d4af37;
+  
+  /* Dark mode colors (default) */
+  --background: #0f0f0f;
+  --text: #f9f9f9;
+  --header-bg: #0f0f0f;
+  
+  /* These are maintained for backward compatibility */
   --black: #0f0f0f;
   --white: #f9f9f9;
-  --gold: #d4af37;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: outline 0.3s ease;
+}
+
+/* Light mode settings */
+[data-theme="light"] {
+  --background: #f9f9f9;
+  --text: #0f0f0f;
+  --header-bg: #f9f9f9;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--background);
+  color: var(--text);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -23,11 +40,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--black);
+  background-color: var(--header-bg);
   border-bottom: 1px solid var(--gold);
   position: sticky;
   top: 0;
   z-index: 999;
+  transition: background-color 0.3s ease;
 }
 
 .logo {
@@ -50,7 +68,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--white);
+  color: var(--text);
 }
 
 nav a:focus-visible { /* Added for better accessibility */
@@ -59,10 +77,38 @@ nav a:focus-visible { /* Added for better accessibility */
   border-radius: 2px;
 }
 
+/* Theme toggle button styles */
+.theme-toggle {
+  background-color: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Flexbox container for navigation items */
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
 .hero {
   text-align: center;
   padding: 0; /* Removed fixed padding */
-  background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+  background: linear-gradient(to right, var(--background), var(--background));
   height: 100vh; /* Make hero take full viewport height */
   display: flex;
   flex-direction: column;
@@ -202,10 +248,12 @@ nav a:focus-visible { /* Added for better accessibility */
 .section {
   padding: 3rem 2rem;
   border-top: 1px solid var(--gold);
+  background-color: var(--background);
+  color: var(--text);
   /* Initial styles for reveal-on-scroll animation */
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out, background-color 0.3s ease, color 0.3s ease;
 }
 
 .section.is-visible { /* This class will be added by JavaScript */
@@ -217,8 +265,9 @@ footer {
   text-align: center;
   padding: 1rem;
   border-top: 1px solid var(--gold);
-  background-color: #0a0a0a;
+  background-color: var(--background);
   color: var(--gold);
+  transition: background-color 0.3s ease;
 }
 
 #backToTop {
@@ -227,7 +276,7 @@ footer {
   bottom: 30px;
   right: 30px;
   background-color: var(--gold);
-  color: var(--black);
+  color: var(--background);
   border: none;
   padding: 0.6rem 1rem;
   font-size: 1.2rem;
@@ -236,7 +285,7 @@ footer {
   z-index: 1000;
   opacity: 0; /* Start transparent for fade-in effect */
   transform: scale(0.9) translateY(10px); /* Start slightly smaller and offset for pop-in effect */
-  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Enhanced transitions */
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, color 0.3s ease; /* Enhanced transitions */
 }
 
 #backToTop:hover {
@@ -252,9 +301,10 @@ footer {
 
 /* Footer Styles */
 .footer {
-  background-color: rgba(15, 15, 15, 0.95);
+  background-color: var(--background);
   border-top: 1px solid var(--gold);
   padding: 3rem 2rem 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .footer-content {
@@ -273,7 +323,7 @@ footer {
 }
 
 .footer-section p {
-  color: var(--white);
+  color: var(--text);
   opacity: 0.8;
   line-height: 1.6;
 }
@@ -288,7 +338,7 @@ footer {
 }
 
 .footer-section ul a {
-  color: var(--white);
+  color: var(--text);
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
@@ -306,7 +356,7 @@ footer {
 }
 
 .footer-bottom p {
-  color: var(--white);
+  color: var(--text);
   opacity: 0.7;
   font-size: 0.9rem;
 }
@@ -321,8 +371,8 @@ footer {
 .newsletter-form input {
   padding: 0.5rem;
   border: 1px solid var(--gold);
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--text);
   border-radius: 4px;
   flex-grow: 1;
 }

@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Welcome to VerbaSphere ✨");
     
+    // Initialize theme from user preference
+    initializeTheme();
+    
     // Initialize footer features
     initializeFooterFeatures();
-    
     // Smooth scroll for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
@@ -114,8 +116,42 @@ document.addEventListener("DOMContentLoaded", () => {
   
     sections.forEach(section => {
       sectionObserver.observe(section);
+    });  });
+  
+  // Theme functionality
+  function initializeTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    
+    // Check if user has a saved preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Apply the saved theme
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Update theme toggle button icon
+    updateThemeToggleIcon(savedTheme);
+    
+    // Add click event to toggle theme
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        // Apply new theme
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        // Save theme preference
+        localStorage.setItem('theme', newTheme);
+        
+        // Update theme toggle button icon
+        updateThemeToggleIcon(newTheme);
     });
-  });
+  }
+  
+  function updateThemeToggleIcon(theme) {
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.innerHTML = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+  }
   
   // Footer functionality
   function initializeFooterFeatures() {

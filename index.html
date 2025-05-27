@@ -5,75 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VerbaSphere | Home</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   </head>
-  <body>    <header>
-      <div class="logo">VerbaSphere</div>
+  <body>
+    <!-- Header with Scroll Effect -->
+    <header class="header" id="header">
+      <div class="logo" data-aos="fade-right">VerbaSphere</div>
       <div class="nav-container">
-        <nav>
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav id="mainNav">
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#community">Community Blogs</a></li>
-            <li><a href="#write">Write Blog</a></li>
+            <li><a href="#about" data-aos="fade-down" data-aos-delay="100">About</a></li>
+            <li><a href="#contact" data-aos="fade-down" data-aos-delay="200">Contact</a></li>
+            <li><a href="#community" data-aos="fade-down" data-aos-delay="300">Community Blogs</a></li>
+            <li><a href="#write" data-aos="fade-down" data-aos-delay="400">Write Blog</a></li>
           </ul>
         </nav>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">☀️</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-sun"></i>
+        </button>
       </div>
     </header>
 
     <main>
-      <section class="hero">
+      <!-- Hero Section -->
+      <section class="hero" data-aos="fade-up">
         <div class="hero-content">
-          <h1>Welcome to <span>VerbaSphere</span></h1>
-          <p>Your space to share, explore, and engage with brilliant minds ✨</p>
-          <a href="#community" class="cta-button">Explore Community Blogs</a>
+          <h1>Welcome to <span class="highlight">VerbaSphere</span></h1>
+          <p class="hero-subtitle">Your space to share, explore, and engage with brilliant minds ✨</p>
+          <a href="#community" class="cta-button" data-aos="fade-up" data-aos-delay="200">
+            Explore Community Blogs
+          </a>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
           <div class="scroll-arrow"></div>
           <p>Scroll to discover</p>
         </div>
       </section>
 
-      <section id="about" class="section">
-        <h2>🧠 About</h2>
-        <p>
-          Learn more about our mission to empower voices through writing. We
-          believe every voice matters.
-        </p>
-        <a href="#write" class="section-button">Join Our Mission</a>
-      </section>
-
-      <section id="contact" class="section">
-        <h2>📬 Contact</h2>
-        <p>
-          Have questions or feedback? Get in touch with our team at
-          <a href="mailto:contact@verbasphere.com">contact@verbasphere.com</a>.
-        </p>
-        <a href="mailto:contact@verbasphere.com" class="section-button">Email Us</a>
-      </section>
-
-      <section id="community" class="section">
-        <h2>🌐 Community Blogs</h2>
-        <p>Read blogs from creators around the world on various topics.</p>
-        <a href="#write" class="section-button">Become a Contributor</a>
-      </section>
-
-      <section id="write" class="section">
-        <h2>✍ Write Blog</h2>
-        <p>Contribute your own thoughts, articles, and creativity today.</p>
-        <a href="../write-blog/index.html" class="cta-button">Start Writing</a>
-      </section>
-    </main>    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>VerbaSphere</h3>
-          <p>Empowering voices through writing.<br>Join our community of creative minds.</p>
+      <!-- About Section -->
+      <section id="about" class="section" data-aos="fade-up">
+        <div class="section-container">
+          <h2>🧠 About</h2>
+          <p>
+            Learn more about our mission to empower voices through writing. We
+            believe every voice matters.
+          </p>
+          <div class="features-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card">
+              <i class="fas fa-pen-fancy"></i>
+              <h3>Express Yourself</h3>
+              <p>Share your unique perspective with the world</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-users"></i>
+              <h3>Connect</h3>
+              <p>Join a community of passionate writers</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Inspire</h3>
+              <p>Make an impact with your words</p>
+            </div>
+          </div>
+          <a href="#write" class="section-button" data-aos="fade-up" data-aos-delay="300">
+            Join Our Mission
+          </a>
         </div>
-        <div class="footer-section">
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section" data-aos="fade-up">
+        <div class="section-container">
+          <h2>📬 Contact</h2>
+          <p>
+            Have questions or feedback? Get in touch with our team at
+            <a href="mailto:contact@verbasphere.com">contact@verbasphere.com</a>
+          </p>
+          <div class="contact-options" data-aos="fade-up" data-aos-delay="200">
+            <a href="mailto:contact@verbasphere.com" class="section-button">
+              <i class="fas fa-envelope"></i> Email Us
+            </a>
+            <button class="section-button" id="openChat">
+              <i class="fas fa-comments"></i> Live Chat
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Blogs Section -->
+      <section id="community" class="section" data-aos="fade-up">
+        <div class="section-container">
+          <h2>🌐 Community Blogs</h2>
+          <p>Read blogs from creators around the world on various topics.</p>
+          <div class="blog-preview-grid" data-aos="fade-up" data-aos-delay="200">
+            <!-- Featured Blog Posts Would Go Here -->
+            <div class="blog-preview-card">
+              <div class="blog-preview-content">
+                <h3>Featured Writers</h3>
+                <p>Discover trending stories from our community</p>
+              </div>
+            </div>
+          </div>
+          <a href="#write" class="section-button" data-aos="fade-up" data-aos-delay="300">
+            Become a Contributor
+          </a>
+        </div>
+      </section>
+
+      <!-- Write Blog Section -->
+      <section id="write" class="section" data-aos="fade-up">
+        <div class="section-container">
+          <h2>✍ Write Blog</h2>
+          <p>Contribute your own thoughts, articles, and creativity today.</p>
+          <div class="writing-features" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-item">
+              <i class="fas fa-edit"></i>
+              <p>User-friendly Editor</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-image"></i>
+              <p>Media Support</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-share-alt"></i>
+              <p>Easy Sharing</p>
+            </div>
+          </div>
+          <a href="../write-blog/index.html" class="cta-button" data-aos="fade-up" data-aos-delay="300">
+            Start Writing
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section" data-aos="fade-up">
+          <h3>VerbaSphere</h3>
+          <p>
+            Empowering voices through writing.<br />
+            Join our community of creative minds.
+          </p>
+        </div>
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#about">About</a></li>
@@ -81,18 +164,36 @@
             <li><a href="#community">Community Blogs</a></li>
             <li><a href="#write">Write Blog</a></li>
           </ul>
-        </div>        <div class="footer-section">
+        </div>
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
           <h3>Connect</h3>
-          <ul>
-            <li><a href="mailto:contact@verbasphere.com" class="social-link">Email</a></li>
-            <li><a href="https://twitter.com/verbasphere" class="social-link">Twitter</a></li>
-            <li><a href="https://linkedin.com/company/verbasphere" class="social-link">LinkedIn</a></li>
+          <ul class="social-links">
+            <li>
+              <a href="mailto:contact@verbasphere.com" class="social-link">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/verbasphere" class="social-link">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/company/verbasphere" class="social-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
-        <div class="footer-section">
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
           <h3>Newsletter</h3>
           <form id="newsletter-form" class="newsletter-form">
-            <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+            <input
+              type="email"
+              id="newsletter-email"
+              placeholder="Enter your email"
+              required
+            />
             <button type="submit" class="newsletter-btn">Subscribe</button>
           </form>
           <p id="newsletter-message" class="newsletter-message"></p>
@@ -104,7 +205,44 @@
       </div>
     </footer>
 
-    <button id="backToTop" title="Back to top">↑</button>
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+      <div class="chat-header">
+        <h3><i class="fas fa-comments"></i> Chat Support</h3>
+        <button class="chat-close" id="chatClose">×</button>
+      </div>
+      <div class="chat-body">
+        <div class="messages" id="chatMessages">
+          <div class="message bot-message">
+            👋 Welcome to VerbaSphere! How can we help you today?
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your message..."
+          aria-label="Chat message"
+        />
+        <button id="chatSend">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" id="chatToggle" aria-label="Toggle chat">
+      <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
